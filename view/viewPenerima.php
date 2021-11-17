@@ -7,7 +7,7 @@ require_once 'view/component/sidebar.php';
 <div class="container mx-auto">
     <!-- judul -->
     <div class="container-fluid">
-        <h1 class="text-center">Penerima</h1>
+        <h1 class="text-center"><?=$title ?></h1>
     </div>
 
     <div class="container-fluid">
@@ -16,7 +16,7 @@ require_once 'view/component/sidebar.php';
         ?>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPenerima">Tambah Penerima</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPenerima">Tambah <?=$title ?></button>
     </div>
 
 <!-- tabel  -->
