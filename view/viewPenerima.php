@@ -22,8 +22,8 @@ require_once 'view/component/sidebar.php';
 <!-- tabel  -->
     <div class="container mx-lg pt-3 scroll">
     
-        <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm display nowrap">
-            <thead class="table-dark" id = "tablePenerima">
+        <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm display nowrap" >
+            <thead class="table-dark" >
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nama</th>
@@ -92,7 +92,7 @@ require_once 'view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Kodepos</label>
-                        <input type="text" name="kodepos" class="form-control" required>
+                        <input type="number" name="kodepos" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">No. HP</label>
@@ -116,7 +116,7 @@ require_once 'view/component/sidebar.php';
             <h5 class="modal-title">Edit Penerima</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="editPenerima.php" method="post">
+            <form action="editPenerima.php" method="post" id="modalEdit">
                 <div class="modal-body">
                     
                         <input type="hidden" name="id" value="">

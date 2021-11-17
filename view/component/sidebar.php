@@ -5,7 +5,6 @@
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav">
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/student.php"><i class="bi bi-calendar3"></i> <span class="item-text">Student</span></a></li>
             <li class="my-2 ms-3"><a href="<?=BASEURL?>/penerima.php"><i class="bi bi-pencil-square"></i> <span class="item-text">Penerima</span></a></li>
             <li class="my-2 ms-3"><a href="<?=BASEURL?>#"><i class="bi bi-people"></i> <span class="item-text">Audience</span></a></li>
             <li class="my-2 ms-3"><a href="<?=BASEURL?>#"><i class="bi bi-book"></i> <span class="item-text">Books World</span></a></li>
