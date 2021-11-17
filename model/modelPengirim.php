@@ -1,7 +1,7 @@
 <?php 
-class ModelPenerima extends Model 
+class ModelPengirim extends Model 
 {
-    private $table = 'Penerima';
+    private $table = 'Pengirim';
 
     public function getColumnName()
     {
@@ -23,7 +23,7 @@ class ModelPenerima extends Model
 
     public function add($id, $nama, $jalan, $kecamatan, $kota, $provinsi, $kodepos, $noHp)
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :jalan, :kecamatan, :kota, :provinsi, :kodepos ,:no_hp)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :no_hp, :jalan, :kecamatan, :kota, :provinsi, :kodepos )';
         $this->db->query($sql);
         $this->db->bind('id',$id);
         $this->db->bind('nama',$nama);
@@ -41,7 +41,7 @@ class ModelPenerima extends Model
 
     public function deleteById($id)
     {
-        $sql = "DELETE FROM {$this->table} WHERE ID_penerima = :id";
+        $sql = "DELETE FROM {$this->table} WHERE ID_pengirim = :id";
         $this->db->query($sql);
         $this->db->bind('id',$id);
 
@@ -53,14 +53,14 @@ class ModelPenerima extends Model
     public function editById($id, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNoHp)
     {
         $sql = "UPDATE {$this->table} SET 
-        nama = :nama, 
+        nama = :nama,
+        no_hp = :no_hp, 
         jalan = :jalan, 
         kecamatan = :kecamatan,
         kab_kota = :kota,
         provinsi = :provinsi,
-        kode_pos = :kodepos,
-        no_hp = :no_hp
-        WHERE ID_penerima = :id;";
+        kode_pos = :kodepos        
+        WHERE ID_pengirim = :id;";
         $this->db->query($sql);
         
         $this->db->bind('nama',$newNama);
