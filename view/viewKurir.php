@@ -38,8 +38,8 @@ require_once 'view/component/sidebar.php';
                     <td><?=$data?></td>
                     <?php endforeach; ?>
                     <td class="fit">
-                        <a class="badge bg-success showEditPenerima"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePenerima.php?id=<?=$row["id"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteKurir.php?id=<?=$row["id"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -58,7 +58,7 @@ require_once 'view/component/sidebar.php';
             <h5 class="modal-title">Tambah Kurir</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="addKurir.php" method="post">
+            <form action="addKurir.php" method="post" >
                 <div class="modal-body">
                     <div class="form-group mb-3">
                         <label for="id">ID</label>
@@ -96,7 +96,7 @@ require_once 'view/component/sidebar.php';
                 <h5 class="modal-title">Edit Kurir</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="editKurir.php" method="post" id="modalEdit">
+            <form action="editKurir.php" method="post" id="formEdit">
                 <div class="modal-body">
                     
                         <input type="hidden" name="id" value="">

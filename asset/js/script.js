@@ -7,11 +7,11 @@ $(document).ready(function () {
     });
     $('.dataTables_length').addClass('bs-select');
 
-    $('#dtDynamicVerticalScrollExample').on('click','.showEditPenerima',function () {
+    $('#dtDynamicVerticalScrollExample').on('click','.showEdit',function () {
         
         let td = $(this).closest('tr').find('td');
-        let input = $('#modalEdit').find('input');
-        console.log(input[0]);
+        let input = $('#formEdit').find('input');
+        console.log(input);
         for (let index = 0; index < td.length-1; index++) {
             input.eq(index).val(td[index].innerHTML);
             

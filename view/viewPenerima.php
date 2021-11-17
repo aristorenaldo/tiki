@@ -43,7 +43,7 @@ require_once 'view/component/sidebar.php';
                     <td><?=$data?></td>
                     <?php endforeach; ?>
                     <td class="fit">
-                        <a class="badge bg-success showEditPenerima"  data-bs-toggle="modal" data-bs-target="#editPenerima">Edit</a>
+                        <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
                         <a class="badge bg-danger" href="<?=BASEURL?>/deletePenerima.php?id=<?=$row["ID"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
@@ -109,14 +109,14 @@ require_once 'view/component/sidebar.php';
 </div>
 
 <!-- modal edit -->
-<div class="modal fade" id="editPenerima" tabindex="-1">
+<div class="modal fade" id="modalEdit" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Edit Penerima</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="editPenerima.php" method="post" id="modalEdit">
+            <form action="editPenerima.php" method="post" id="formEdit">
                 <div class="modal-body">
                     
                         <input type="hidden" name="id" value="">

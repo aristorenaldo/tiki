@@ -24,7 +24,7 @@ class ModelKurir extends Model
 
     public function add($id, $nama,  $noHp, $lokasi)
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, ,:no_hp, :lokasi)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :no_hp, :lokasi)';
         $this->db->query($sql);
         $this->db->bind('id',$id);
         $this->db->bind('nama',$nama);
