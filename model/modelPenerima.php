@@ -1,7 +1,18 @@
 <?php 
 class ModelPenerima extends Model 
 {
-    private $table = 'penerima';
+    private $table = 'Penerima';
+
+    public function getColumnName()
+    {
+        $sql = "SELECT COLUMN_NAME
+        from INFORMATION_SCHEMA.COLUMNS
+        where TABLE_NAME='{$this->table}'";
+        $this->db->query($sql);
+        $this->db->execute();
+        return $this->db->resultSet();
+
+    }
 
     public function getAll()
     {
@@ -30,7 +41,7 @@ class ModelPenerima extends Model
 
     public function deleteById($id)
     {
-        $sql = "DELETE FROM {$this->table} WHERE ID = :id";
+        $sql = "DELETE FROM {$this->table} WHERE ID_penerima = :id";
         $this->db->query($sql);
         $this->db->bind('id',$id);
 
@@ -42,14 +53,14 @@ class ModelPenerima extends Model
     public function editById($id, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNoHp)
     {
         $sql = "UPDATE {$this->table} SET 
-        Nama = :nama, 
-        Jalan = :jalan, 
-        Kecamatan = :kecamatan,
-        Kota = :kota,
-        Provinsi = :provinsi,
-        Kodepos = :kodepos,
-        No_hp = :no_hp
-        WHERE ID = :id;";
+        nama = :nama, 
+        jalan = :jalan, 
+        kecamatan = :kecamatan,
+        kab_kota = :kota,
+        provinsi = :provinsi,
+        kodepos = :kodepos,
+        no_hp = :no_hp
+        WHERE ID_penerima = :id;";
         $this->db->query($sql);
         
         $this->db->bind('nama',$newNama);

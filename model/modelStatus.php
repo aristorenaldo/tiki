@@ -1,8 +1,8 @@
 <?php 
 
-class ModelKurir extends Model 
+class ModelStatus extends Model 
 {
-    private $table = "Kurir";//nama tabel
+    private $table = "Status";//nama tabel
     
     public function getColumnName()
     {
@@ -22,14 +22,12 @@ class ModelKurir extends Model
         return $this->db->resultSet();
     }
 
-    public function add($id, $nama,  $noHp, $lokasi)
+    public function add($id, $namaStatus, )
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :no_hp, :lokasi)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama_status)';
         $this->db->query($sql);
         $this->db->bind('id',$id);
-        $this->db->bind('nama',$nama);
-        $this->db->bind('no_hp',$noHp);
-        $this->db->bind('lokasi',$lokasi);
+        $this->db->bind('nama_status',$namaStatus);
 
         $this->db->execute();
 
@@ -38,7 +36,7 @@ class ModelKurir extends Model
 
     public function deleteById($id)
     {
-        $sql = "DELETE FROM {$this->table} WHERE ID_kurir = :id";
+        $sql = "DELETE FROM {$this->table} WHERE ID_status = :id";
         $this->db->query($sql);
         $this->db->bind('id',$id);
 
@@ -47,18 +45,14 @@ class ModelKurir extends Model
         return $this->db->rowCount();
     }
 
-    public function editById($id, $newNama, $newNoHp, $newLokasi)
+    public function editById($id, $newNamaStatus)
     {
         $sql = "UPDATE {$this->table} SET 
-        nama = :nama, 
-        no_hp = :no_hp,
-        lokasi = :  lokasi
-        WHERE ID_kurir = :id;";
+        nama_status = :nama_status  
+        WHERE ID_status = :id;";
         $this->db->query($sql);
         
-        $this->db->bind('nama',$newNama);
-        $this->db->bind('no_hp',$newNoHp);
-        $this->db->bind('lokasi',$newLokasi);
+        $this->db->bind('nama_status',$newNamaStatus);
         $this->db->bind('id',$id);
 
         $this->db->execute();

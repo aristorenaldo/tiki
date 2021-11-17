@@ -25,14 +25,9 @@ require_once 'view/component/sidebar.php';
         <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm display nowrap" >
             <thead class="table-dark" >
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Jalan</th>
-                    <th scope="col" >Kecamatan</th>
-                    <th scope="col" >Kota</th>
-                    <th scope="col" >Provinsi</th>
-                    <th scope="col" >Kode Pos</th>
-                    <th scope="col" >No. HP</th>
+                <?php foreach($colName as $value): ?>
+                    <th scope="col"><?=$value['COLUMN_NAME'] ?></th>
+                    <?php endforeach; ?>
                     <th></th>
                 </tr>
             </thead>
@@ -44,7 +39,7 @@ require_once 'view/component/sidebar.php';
                     <?php endforeach; ?>
                     <td class="fit">
                         <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePenerima.php?id=<?=$row["ID"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePenerima.php?id=<?=$row["ID_penerima"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

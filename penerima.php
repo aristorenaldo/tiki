@@ -4,6 +4,7 @@ if(! session_id()) session_start();
 require_once 'init.php';
 
 $penerima = new ModelPenerima();
+$colName = $penerima->getColumnName();
 $result = $penerima->getAll();
 
 $msg = $penerima->getError();

@@ -16,7 +16,7 @@ require_once 'view/component/sidebar.php';
         ?>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">Tambah Kurir</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">Tambah Status</button>
     </div>
 
 <!-- tabel  -->
@@ -39,7 +39,7 @@ require_once 'view/component/sidebar.php';
                     <?php endforeach; ?>
                     <td class="fit">
                         <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteKurir.php?id=<?=$row["ID_kurir"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteStatus.php?id=<?=$row["ID_status"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -53,29 +53,20 @@ require_once 'view/component/sidebar.php';
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Tambah Kurir</h5>
+            <h5 class="modal-title">Tambah Status</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="addKurir.php" method="post" >
+            <form action="addStatus.php" method="post" >
                 <div class="modal-body">
                     <div class="form-group mb-3">
-                        <label for="id">ID</label>
+                        <label for="id">ID Status</label>
                         <input type="text" name="id" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">Nama</label>
-                        <input type="text" name="nama" class="form-control" required>
+                        <label for="name">Nama Status</label>
+                        <input type="text" name="nama_status" class="form-control" required>
                     </div>
                     
-                    <div class="form-group mb-3">
-                        <label for="name">No. HP</label>
-                        <input type="tel" name="no_hp" class="form-control" required>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label for="name">Lokasi</label>
-                        <input type="text" name="lokasi" class="form-control" required>
-                    </div>
                 </div>
                 <div class="modal-footer mb-3">
                     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
@@ -91,28 +82,19 @@ require_once 'view/component/sidebar.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Kurir</h5>
+                <h5 class="modal-title">Edit Status</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="editKurir.php" method="post" id="formEdit">
+            <form action="editStatus.php" method="post" id="formEdit">
                 <div class="modal-body">
                     
                         <input type="hidden" name="id" value="">
                     
                     <div class="form-group mb-3">
-                        <label for="name">Nama</label>
-                        <input type="text" name="nama" class="form-control" required>
+                        <label for="name">Nama Status</label>
+                        <input type="text" name="nama_status" class="form-control" required>
                     </div>
                     
-                    <div class="form-group mb-3">
-                        <label for="name">No. HP</label>
-                        <input type="tel" name="no_hp" class="form-control" required>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label for="name">Lokasi</label>
-                        <input type="text" name="lokasi" class="form-control" required>
-                    </div>
                 </div>
                 <div class="modal-footer mb-3">
                     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
