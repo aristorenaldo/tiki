@@ -3,6 +3,8 @@ if(! session_id()) session_start();
 
 require_once 'init.php';
 
+header('Location: '.BASEURL.'/penerima.php');
+exit();
 $student = new ModelStudent();
 // var_dump($student);
 $result = $student->getAll();

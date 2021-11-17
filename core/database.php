@@ -14,7 +14,7 @@ class Database
     {
         try {
             $this->conn = new PDO("sqlsrv:Server={$this->dbHost};Database={$this->dbName}",$this->dbUser, $this->dbPsw);
-            $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT );
         } catch (PDOException $e) {
             die($e->getMessage());
         }

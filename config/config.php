@@ -7,5 +7,5 @@ define('BASEURL', 'http://localhost/tiki');
 define('DB_HOST', 'localhost');
 define('DB_USER', NULL);
 define('DB_PSW', NULL);
-define('DB_NAME', 'University');
+define('DB_NAME', 'tiki');
 ?>

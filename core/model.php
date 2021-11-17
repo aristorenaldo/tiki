@@ -8,6 +8,12 @@ class Model
         $this->db = new Database();
     }
 
+    public function getError()
+    {
+        $msg = $this->db->errorInfo();
+        return $msg[2];
+    }
+
 }
 
 ?>
