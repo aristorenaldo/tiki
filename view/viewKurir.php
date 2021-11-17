@@ -45,9 +45,7 @@ require_once 'view/component/sidebar.php';
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
     </div>
-
 </div>
 
 <!-- Modal Add  -->
