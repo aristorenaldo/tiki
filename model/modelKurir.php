@@ -52,7 +52,7 @@ class ModelKurir extends Model
         $sql = "UPDATE {$this->table} SET 
         nama = :nama, 
         no_hp = :no_hp,
-        lokasi = ;lokasi
+        lokasi = :lokasi
         WHERE id = :id;";
         $this->db->query($sql);
         
