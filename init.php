@@ -8,5 +8,6 @@ require_once 'core/flasher.php';
 
 // Model
 require_once 'model/modelPenerima.php';
+require_once 'model/modelKurir.php';
 
 ?>

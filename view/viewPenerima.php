@@ -96,7 +96,7 @@ require_once 'view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">No. HP</label>
-                        <input type="text" name="no_hp" class="form-control" required>
+                        <input type="tel" name="no_hp" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer mb-3">
@@ -144,11 +144,11 @@ require_once 'view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Kodepos</label>
-                        <input type="text" name="kodepos" class="form-control" required>
+                        <input type="number" name="kodepos" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">No. HP</label>
-                        <input type="text" name="no_hp" class="form-control" required>
+                        <input type="tel" name="no_hp" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer mb-3">
