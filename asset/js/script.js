@@ -30,6 +30,14 @@ $(function () {
         })
     });
 
+    $('#tablePenerima').on('click','.showEditPenerima',function () {
+        
+        let td = $(this).closest('tr').find('td');
+
+        
+        
+    });
+
 });
 
 
