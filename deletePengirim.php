@@ -3,12 +3,12 @@
 if(! session_id()) session_start();
 require_once 'init.php';
 
-$pengirim = new ModelPengirim();
+$penerima = new ModelPengirim();
 
 if(isset($_GET)){
     $deletedId = htmlentities($_GET['id']);
-    $stat = $pengirim->deleteById($deletedId);
-    $msg = $pengirim->getError();
+    $stat = $penerima->deleteById($deletedId);
+    $msg = $penerima->getError();
     if ($stat > 0) {
         Flasher::setFlash('Record Deleted Successfully','Deleted','success');
     }
@@ -16,6 +16,6 @@ if(isset($_GET)){
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/pengirim.php');
+header('Location: '.BASEURL.'/penerima.php');
 exit();
 ?>

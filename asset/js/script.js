@@ -12,11 +12,16 @@ $(document).ready(function () {
         let td = $(this).closest('tr').find('td');
         let input = $('#formEdit').find('input');
         console.log(input);
+        console.log(input.length-td.length);
         for (let index = 0; index < td.length-1; index++) {
             input.eq(index).val(td[index].innerHTML);
             
         }
         
+        if ((input.length-td.length)==2) {
+            input.eq(4).val(td[1].innerHTML);
+            input.eq(5).val(td[0].innerHTML);
+        }
         
     });
 });

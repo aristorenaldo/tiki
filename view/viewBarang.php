@@ -25,8 +25,8 @@ require_once 'view/component/sidebar.php';
         <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm display nowrap" >
             <thead class="table-dark" >
                 <tr>
-                    <th scope="col">resi</th>
                     <th scope="col">nama</th>
+                    <th scope="col">resi</th>
                     <th scope="col">jenis</th>
                     <th scope="col" >berat</th>
                     <th></th>
@@ -39,8 +39,9 @@ require_once 'view/component/sidebar.php';
                     <td><?=$data?></td>
                     <?php endforeach; ?>
                     <td class="fit">
-                        <a class="badge bg-success showEditBarang"  data-bs-toggle="modal" data-bs-target="#editBarang">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteBarang.php?id=<?=$row["ID"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#editBarang">Edit</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteBarang.php?nama=<?=urlencode($row['nama'])?>&resi=<?=urlencode($row['resi']) ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -72,7 +73,7 @@ require_once 'view/component/sidebar.php';
                     
                     <div class="form-group mb-3">
                         <label for="name">jenis</label>
-                        <input type="text" name="jalan" class="form-control" required>
+                        <input type="text" name="jenis" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">berat</label>
@@ -97,29 +98,30 @@ require_once 'view/component/sidebar.php';
             <h5 class="modal-title">Edit Barang</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="editBarang.php" method="post" id="modalEdit">
+            <form action="editBarang.php" method="post" id="formEdit">
                 <div class="modal-body">
-                    
-                        <input type="hidden" name="id" value="">
-
-                    <div class="form-group mb-3">
-                        <label for="id">Resi</label>
-                        <input type="text" name="resi" class="form-control" required>
-                    </div>    
-
                     <div class="form-group mb-3">
                         <label for="name">Nama</label>
-                        <input type="text" name="nama" class="form-control" required>
+                        <input type="text" name="newnama" class="form-control" required>
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="id">Resi</label>
+                        <input type="text" name="newresi" class="form-control" required>
+                    </div>    
+
+                    
                     
                     <div class="form-group mb-3">
                         <label for="name">Jenis</label>
-                        <input type="text" name="jenis" class="form-control" required>
+                        <input type="text" name="newjenis" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">berat</label>
-                        <input type="number" name="berat" class="form-control" required>
+                        <input type="number" name="newberat" class="form-control" required>
                     </div>
+
+                    <input type="hidden" name="resi" value="">
+                    <input type="hidden" name="nama" value="">
                 </div>
                 <div class="modal-footer mb-3">
                     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>

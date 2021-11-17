@@ -5,7 +5,8 @@ require_once 'init.php';
 
 $pengirim = new ModelPengirim();
 
-if (isset($_POST)) {
+if (isset($_POST['id'])) {
+    
     $newId = htmlentities( $_POST['id'] );
     $newNama = htmlentities( $_POST['nama'] );
     $newJalan = htmlentities( $_POST['jalan'] );
@@ -24,8 +25,7 @@ if (isset($_POST)) {
     else{
         Flasher::setFlash($errMsg, 'Added','danger');
     }
-
-}
+}   
 header('Location: '.BASEURL.'/pengirim.php');
 exit();
 

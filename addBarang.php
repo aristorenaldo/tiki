@@ -5,13 +5,13 @@ require_once 'init.php';
 
 $barang = new ModelBarang();
 
-if (isset($_POST)) {
+if (isset($_POST['resi'])) {
     $resi = htmlentities( $_POST['resi'] );
     $newNama = htmlentities( $_POST['nama'] );
     $newJenis = htmlentities( $_POST['jenis'] );
     $newBerat = (int)htmlentities( $_POST['berat'] );
     
-    $stat = $barang->editById($resi, $newNama, $newJenis, $newBerat);
+    $stat = $barang->add($resi, $newNama, $newJenis, $newBerat);
     $errMsg = $barang->getError();
 
 
