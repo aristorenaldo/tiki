@@ -24,7 +24,7 @@ class ModelStatus extends Model
         return $this->db->resultSet();
     }
 
-    public function add($id, $namaStatus, )
+    public function add($id, $namaStatus )
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama_status)';
         $this->db->query($sql);
