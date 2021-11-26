@@ -28,7 +28,7 @@ require_once 'view/component/sidebar.php';
                     <th scope="col">nama</th>
                     <th scope="col">resi</th>
                     <th scope="col">jenis</th>
-                    <th scope="col" >berat</th>
+                    <th scope="col" >berat (kg)</th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,6 +36,9 @@ require_once 'view/component/sidebar.php';
                 <?php foreach ($result as $row): ?>
                 <tr>
                     <?php foreach ($row as $data): ?>
+                    <?php 
+                    if (is_float($data)) $data = (String)round($data,2)    
+                    ?>
                     <td><?=$data?></td>
                     <?php endforeach; ?>
                     <td class="fit">
@@ -120,8 +123,8 @@ require_once 'view/component/sidebar.php';
                         <input type="number" name="newberat" class="form-control" required>
                     </div>
 
-                    <input type="hidden" name="resi" value="">
                     <input type="hidden" name="nama" value="">
+                    <input type="hidden" name="resi" value="">
                 </div>
                 <div class="modal-footer mb-3">
                     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>

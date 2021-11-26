@@ -24,17 +24,16 @@ class ModelPenerima extends Model
         return $this->db->resultSet();
     }
 
-    public function add($id, $nama, $jalan, $kecamatan, $kota, $provinsi, $kodepos, $noHp)
+    public function add( $nama, $jalan, $kecamatan, $kota, $provinsi, $kodepos, $noHp)
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :jalan, :kecamatan, :kota, :provinsi, :kodepos ,:no_hp)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES ( :nama, :jalan, :kecamatan, :kota, :provinsi, :kodepos, :no_hp)';
         $this->db->query($sql);
-        $this->db->bind('id',$id);
         $this->db->bind('nama',$nama);
         $this->db->bind('jalan',$jalan);
         $this->db->bind('kecamatan',$kecamatan);
         $this->db->bind('kota',$kota);
         $this->db->bind('provinsi',$provinsi);
-        $this->db->bind('kodepos',$kodepos);
+        $this->db->bind('kodepos',$kodepos, PDO::PARAM_STR);
         $this->db->bind('no_hp',$noHp);
 
         $this->db->execute();
@@ -71,7 +70,7 @@ class ModelPenerima extends Model
         $this->db->bind('kecamatan',$newKecamatan);
         $this->db->bind('kota',$newKota);
         $this->db->bind('provinsi',$newProvinsi);
-        $this->db->bind('kodepos',$newKodepos);
+        $this->db->bind('kodepos',$newKodepos, PDO::PARAM_STR);
         $this->db->bind('no_hp',$newNoHp);
         $this->db->bind('id',$id);
 

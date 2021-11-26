@@ -5,9 +5,8 @@ require_once 'init.php';
 
 $pengirim = new ModelPengirim();
 
-if (isset($_POST['id'])) {
+if (isset($_POST['nama'])) {
     
-    $newId = htmlentities( $_POST['id'] );
     $newNama = htmlentities( $_POST['nama'] );
     $newJalan = htmlentities( $_POST['jalan'] );
     $newKecamatan = htmlentities( $_POST['kecamatan'] );
@@ -16,7 +15,7 @@ if (isset($_POST['id'])) {
     $newKodepos =(int) htmlentities( $_POST['kodepos'] );
     $newNo_hp = htmlentities( $_POST['no_hp'] );
     
-    $stat = $pengirim->add($newId, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
+    $stat = $pengirim->add( $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
     $errMsg = $pengirim->getError();
 
     if ($stat > 0) {

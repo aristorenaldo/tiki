@@ -10,14 +10,12 @@ class ModelPengiriman extends Model
         return $this->db->resultSet();
     }
 
-    public function add($resi, $hari, $tanggal, $jam, $jenis_pengiriman, $total_berat, $total_harga, $id_pengirim,$id_kurir,$id_penerima)
+    public function add($resi, $timestamp, $jenis_pengiriman, $total_berat, $total_harga, $id_pengirim,$id_kurir,$id_penerima)
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:resi, :hari, :tanggal, :jam, :jenis_pengiriman, :total_berat, :total_harga ,:id_pengirim,:id_kurir,:id_penerima)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES (:resi, :time_stamp, :jenis_pengiriman, :total_berat, :total_harga ,:id_pengirim,:id_kurir,:id_penerima)';
         $this->db->query($sql);
         $this->db->bind('resi',$resi);
-        $this->db->bind('hari',$hari);
-        $this->db->bind('tanggal',$tanggal);
-        $this->db->bind('jam',$jam);
+        $this->db->bind('time_stamp',$timestamp);
         $this->db->bind('jenis_pengiriman',$jenis_pengiriman);
         $this->db->bind('total_berat',$total_berat);
         $this->db->bind('total_harga',$total_harga);
@@ -30,7 +28,7 @@ class ModelPengiriman extends Model
         return $this->db->rowCount();
     }
 
-    public function deleteById($id)
+    public function deleteById($resi)
     {
         $sql = "DELETE FROM {$this->table} WHERE Resi = :resi";
         $this->db->query($sql);
@@ -41,25 +39,23 @@ class ModelPengiriman extends Model
         return $this->db->rowCount();
     }
 
-    public function editById($resi, $newHari, $newTanggal, $newJam, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima)
+    public function editById($resi, $newResi, $timestamp, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima)
     {
-        $sql = "UPDATE {$this->table} SET 
-        Resi = :resi, 
-        Hari = :hari, 
-        Jam = :jam,
-        JenisPengiriman = :jenispengiriman,
-        TotalBerat = :totalberat,
-        TotalHarga = :totalHarga,
-        ID_Pengirim = :id_pengirim,
-        ID_Kurir = id_kurir,
-        ID_Penerima = id_penerima,
+        $sql = "UPDATE {$this->table} SET
+        resi = :new_resi, 
+        waktu_pembuatan = :time_stamp,
+        jenis_pengiriman = :jenis_pengiriman,
+        total_berat_kg = :total_berat,
+        total_harga = :total_harga,
+        ID_pengirim = :id_pengirim,
+        ID_kurir = :id_kurir,
+        ID_penerima = :id_penerima
         WHERE resi = :resi;";
         $this->db->query($sql);
         
-        $this->db->bind('nama',$newHari);
-        $this->db->bind('tanggal',$newTanggal);
-        $this->db->bind('jam',$newJam);
-        $this->db->bind('pengiriman',$newJenisPengiriman);
+        $this->db->bind('new_resi', $newResi);
+        $this->db->bind('time_stamp', $timestamp);
+        $this->db->bind('jenis_pengiriman',$newJenisPengiriman);
         $this->db->bind('total_berat',$newTotalBerat);
         $this->db->bind('total_harga',$newTotalHarga);
         $this->db->bind('id_pengirim',$newIdPengirim);

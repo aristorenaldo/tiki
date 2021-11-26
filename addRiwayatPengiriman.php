@@ -5,14 +5,15 @@ require_once 'init.php';
 
 $riwayatpengiriman = new ModelRiwayatPengiriman();
 
-if (isset($_POST)) {
+if (isset($_POST['resi'])) {
+    $timestamp = DateTime::createFromFormat('U.u', number_format(microtime(true), 3, '.', ''));
+    $timestampLocal = substr($timestamp->setTimeZone(new DateTimeZone('Asia/Ujung_pandang'))->format('Y-m-d H:i:s.u'), 0,-3);
+
     $resi = htmlentities( $_POST['resi'] );
     $newId = htmlentities( $_POST['id'] );
-    $newTimeStamp = htmlentities( $_POST['time_stamp'] );
     $newKota = htmlentities( $_POST['kota'] );
-    
 
-    $stat = $riwayatpengiriman->editById($resi, $newId, $newTimeStamp, $newKota);
+    $stat = $riwayatpengiriman->add($resi, $newId, $timestampLocal, $newKota);
     $errMsg = $riwayatpengiriman->getError();
 
 

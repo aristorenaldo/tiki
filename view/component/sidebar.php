@@ -10,7 +10,12 @@
             <li class="my-2 ms-3"><a href="<?=BASEURL?>/status.php"><i class="bi bi-book"></i> <span class="item-text">Status</span></a></li>
             <li class="my-2 ms-3"><a href="<?=BASEURL?>/pengirim.php"><i class="bi bi-person-check"></i> <span class="item-text">Pengirim</span></a></li>
             <li class="my-2 ms-3"><a href="<?=BASEURL?>/barang.php"><i class="bi bi-envelope"></i> <span class="item-text">Barang</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>#"><i class="bi bi-box-arrow-right"></i> <span class="item-text">logout</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/pengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Pengiriman</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/riwayatPengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Riwayat Pengiriman</span></a></li>
         </ul>
     </div>
 </div>
+
+<a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+<i class="bi bi-list"></i>
+</a>

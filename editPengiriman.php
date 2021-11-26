@@ -5,19 +5,20 @@ require_once 'init.php';
 
 $pengiriman = new ModelPengiriman();
 
-if(isset($_POST)){
-    $resi = htmlentities( $_POST['resi'] );
-    $newHari = htmlentities( $_POST['hari'] );
-    $newTanggal = htmlentities( $_POST['tanggal'] );
-    $newJam = (double)htmlentities( $_POST['jam'] );
-    $newJenisPengiriman = htmlentities( $_POST['jenis_pengiriman'] );
-    $newTotalBerat = (int)htmlentities( $_POST['total_berat'] );
-    $newTotalHarga =(int) htmlentities( $_POST['total_harga'] );
-    $newIdPengirim = htmlentities( $_POST['id_pengirim'] );
-    $newIdKurir = htmlentities( $_POST['id_kurir'] );
-    $newIdPenerima = htmlentities( $_POST['id_penerima'] );
+if(isset($_POST['resi'])){
 
-    $stat = $pengiriman->editById($resi, $newHari, $newTanggal, $newJam, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima);
+    $resi = htmlentities( $_POST['resi'] );
+    $newResi = htmlentities($_POST['newresi']);
+    $timestampLocal = htmlentities( $_POST['timestamp']);
+    $newJenisPengiriman = htmlentities( $_POST['jenis_pengiriman'] );
+    $newTotalBerat = (float)htmlentities( $_POST['total_berat'] );
+    $newTotalHarga =(float) htmlentities( $_POST['total_harga'] );
+    $newIdPengirim = (int)htmlentities( $_POST['id_pengirim'] );
+    $newIdKurir =(int) htmlentities( $_POST['id_kurir'] );
+    $newIdPenerima = (int)htmlentities( $_POST['id_penerima'] );
+    // var_dump($_POST);
+    // die();
+    $stat = $pengiriman->editById($resi, $newResi, $timestampLocal, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima);
     $errMsg = $pengiriman->getError();
 
     if ($stat > 0) {

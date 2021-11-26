@@ -5,19 +5,19 @@ require_once 'init.php';
 
 $pengiriman = new ModelPengiriman();
 
-if (isset($_POST)) {
+if (isset($_POST['resi'])) {
+    $timestamp = DateTime::createFromFormat('U.u', number_format(microtime(true), 3, '.', ''));
+    $timestampLocal = substr($timestamp->setTimeZone(new DateTimeZone('Asia/Ujung_pandang'))->format('Y-m-d H:i:s.u'), 0,-3);
+
     $resi = htmlentities( $_POST['resi'] );
-    $newHari = htmlentities( $_POST['hari'] );
-    $newTanggal = htmlentities( $_POST['tanggal'] );
-    $newJam = (double)htmlentities( $_POST['jam'] );
     $newJenisPengiriman = htmlentities( $_POST['jenis_pengiriman'] );
-    $newTotalBerat = (int)htmlentities( $_POST['total_berat'] );
-    $newTotalHarga =(int) htmlentities( $_POST['total_harga'] );
+    $newTotalBerat = (float) htmlentities( $_POST['total_berat'] );
+    $newTotalHarga =(float) htmlentities( $_POST['total_harga'] );
     $newIdPengirim = htmlentities( $_POST['id_pengirim'] );
     $newIdKurir = htmlentities( $_POST['id_kurir'] );
     $newIdPenerima = htmlentities( $_POST['id_penerima'] );
 
-    $stat = $pengiriman->editById($resi, $newHari, $newTanggal, $newJam, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima);
+    $stat = $pengiriman->add($resi, $timestampLocal, $newJenisPengiriman, $newTotalBerat, $newTotalHarga, $newIdPengirim, $newIdKurir,$newIdPenerima);
     $errMsg = $pengiriman->getError();
 
 

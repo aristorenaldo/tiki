@@ -15,10 +15,11 @@ class Database
         try {
             $this->conn = new PDO("sqlsrv:Server={$this->dbHost};Database={$this->dbName}",$this->dbUser, $this->dbPsw);
             $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT );
+            $this->conn->setAttribute(PDO::SQLSRV_ATTR_FORMAT_DECIMALS, true);
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-        
+
     }
 
     public function query($sql)

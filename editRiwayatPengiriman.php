@@ -7,12 +7,14 @@ $riwayatpengiriman = new modelRiwayatPengiriman();
 
 if(isset($_POST)){
     $resi = htmlentities( $_POST['resi'] );
-    $newId = htmlentities( $_POST['id'] );
-    $newTimeStamp = htmlentities( $_POST['time_stamp'] );
+    $idStatus = htmlentities( $_POST['id'] );
+    $newResi = htmlentities( $_POST['newresi'] );
+    $newIdStatus = htmlentities( $_POST['newid'] );
+    $newTimestamp = htmlentities( $_POST['timestamp'] );
     $newKota = htmlentities( $_POST['kota'] );
     
 
-    $stat = $riwayatpengiriman->editById($resi, $newId, $newTimeStamp, $newKota);
+    $stat = $riwayatpengiriman->editById($resi, $idStatus, $newResi, $newIdStatus, $newTimestamp, $newKota);
     $errMsg = $riwayatpengiriman->getError();
 
     if ($stat > 0) {

@@ -13,6 +13,8 @@ if(isset($_POST)){
     $newKota = htmlentities( $_POST['kota'] );
     $newProvinsi = htmlentities( $_POST['provinsi'] );
     $newKodepos =(int) htmlentities( $_POST['kodepos'] );
+
+    
     $newNo_hp = htmlentities( $_POST['no_hp'] );
 
     $stat = $penerima->editById($id, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);

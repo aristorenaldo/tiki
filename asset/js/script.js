@@ -11,16 +11,28 @@ $(document).ready(function () {
         
         let td = $(this).closest('tr').find('td');
         let input = $('#formEdit').find('input');
-        console.log(input);
+        // console.log(td.length);
+        // console.log(td);
         console.log(input.length-td.length);
         for (let index = 0; index < td.length-1; index++) {
             input.eq(index).val(td[index].innerHTML);
             
         }
         
-        if ((input.length-td.length)==2) {
-            input.eq(4).val(td[1].innerHTML);
-            input.eq(5).val(td[0].innerHTML);
+        if ((input.length-td.length)>0) {
+            // start index
+            //i index input
+            let i =  td.length - 1;
+            
+            // j index td
+            let j = 0;
+            while (i < input.length-1) {
+                input.eq(i).val(td[j].innerHTML)
+                i++;
+                j++;
+            }
+            // input.eq(4).val(td[0].innerHTML);
+            // input.eq(5).val(td[1].innerHTML);
         }
         
     });

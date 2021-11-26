@@ -4,7 +4,7 @@ if(! session_id()) session_start();
 require_once 'init.php';
 
 $riwayatpengiriman = new ModelRiwayatPengiriman();
-$result = $riwayatpengirima->getAll();
+$result = $riwayatpengiriman->getAll();
 
 $msg = $riwayatpengiriman->getError();
 

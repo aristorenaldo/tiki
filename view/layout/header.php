@@ -21,9 +21,7 @@
     <title><?=$title ?></title>
 </head>
 <body>
-<a class="btn btn-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-<i class="bi bi-list"></i>
-</a>
+    
 
 
     

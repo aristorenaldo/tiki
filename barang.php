@@ -13,7 +13,6 @@ if(!is_null($msg)) die($msg);
 // var_dump($result);
 // die();
 $title = "barang";
-
 require_once 'view/viewBarang.php';
 exit;
 ?>

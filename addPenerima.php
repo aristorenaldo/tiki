@@ -5,8 +5,7 @@ require_once 'init.php';
 
 $penerima = new ModelPenerima();
 
-if (isset($_POST)) {
-    $newId = htmlentities( $_POST['id'] );
+if (isset($_POST['nama'])) {
     $newNama = htmlentities( $_POST['nama'] );
     $newJalan = htmlentities( $_POST['jalan'] );
     $newKecamatan = htmlentities( $_POST['kecamatan'] );
@@ -15,7 +14,7 @@ if (isset($_POST)) {
     $newKodepos =(int) htmlentities( $_POST['kodepos'] );
     $newNo_hp = htmlentities( $_POST['no_hp'] );
     
-    $stat = $penerima->add($newId, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
+    $stat = $penerima->add($newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
     $errMsg = $penerima->getError();
 
     if ($stat > 0) {

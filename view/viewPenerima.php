@@ -63,10 +63,6 @@ require_once 'view/component/sidebar.php';
             <form action="addPenerima.php" method="post">
                 <div class="modal-body">
                     <div class="form-group mb-3">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-3">
                         <label for="name">Nama</label>
                         <input type="text" name="nama" class="form-control" required>
                     </div>

@@ -25,16 +25,9 @@ require_once 'view/component/sidebar.php';
         <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm display nowrap" >
             <thead class="table-dark" >
                 <tr>
-                    <th scope="col">Resi</th>
-                    <th scope="col">Hari</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col" >Jam</th>
-                    <th scope="col" >Jenis_pengiriman</th>
-                    <th scope="col" >Total_berat</th>
-                    <th scope="col" >Total_harga</th>
-                    <th scope="col" >Id_Pengirim</th>
-                    <th scope="col" >Id_Kurir</th>
-                    <th scope="col" >id_Penerima</th>
+                    <?php foreach(array_keys($result[0]) as $col): ?>
+                        <th><?=$col ?></th>
+                    <?php endforeach; ?>
                     <th></th>
                 </tr>
             </thead>
@@ -45,8 +38,8 @@ require_once 'view/component/sidebar.php';
                     <td><?=$data?></td>
                     <?php endforeach; ?>
                     <td class="fit">
-                        <a class="badge bg-success showEditPenerima"  data-bs-toggle="modal" data-bs-target="#editPengiriman">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePengiriman.php?id=<?=$row["ID"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#editPengiriman">Edit</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePengiriman.php?resi=<?=$row["resi"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -72,25 +65,12 @@ require_once 'view/component/sidebar.php';
                         <input type="text" name="resi" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">Hari</label>
-                        <input type="text" name="hari" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group mb-3">
-                        <label for="name">Tanggal</label>
-                        <input type="text" name="tanggal" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="name">Jam</label>
-                        <input type="number" name="jam" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-3">
                         <label for="name">Jenis Pengiriman</label>
                         <input type="text" name="jenis_pengiriman" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Total_berat</label>
-                        <input type="number" name="total_berat" class="form-control" required>
+                        <input type="number" step=0.01 name="total_berat" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Total_harga</label>
@@ -126,27 +106,16 @@ require_once 'view/component/sidebar.php';
             <h5 class="modal-title">Edit Pengiriman</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="editPengiriman.php" method="post" id="modalEdit">
+            <form action="editPengiriman.php" method="post" id="formEdit">
                 <div class="modal-body">
-                    
-                        <input type="hidden" name="id" value="">
 
-                        <div class="form-group mb-3">
+                    <div class="form-group mb-3">
                         <label for="id">resi</label>
-                        <input type="text" name="resi" class="form-control" required>
+                        <input type="text" name="newresi" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">Hari</label>
-                        <input type="text" name="hari" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group mb-3">
-                        <label for="name">Tanggal</label>
-                        <input type="text" name="tanggal" class="form-control" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="name">Jam</label>
-                        <input type="number" name="jam" class="form-control" required>
+                        <label for="name">Timestamp</label>
+                        <input type="text" name="timestamp" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Jenis Pengiriman</label>
@@ -154,11 +123,11 @@ require_once 'view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Total_berat</label>
-                        <input type="number" name="total_berat" class="form-control" required>
+                        <input type="number" name="total_berat"  step=0.01  class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Total_harga</label>
-                        <input type="number" name="total_harga" class="form-control" required>
+                        <input type="number" name="total_harga" step=0.01 class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">ID Pengirim</label>
@@ -172,6 +141,7 @@ require_once 'view/component/sidebar.php';
                         <label for="name">ID Penerima</label>
                         <input type="text" name="id_penerima" class="form-control" required>
                     </div>
+                    <input type="hidden" name="resi" value="">
                 </div>
                 <div class="modal-footer mb-3">
                     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
