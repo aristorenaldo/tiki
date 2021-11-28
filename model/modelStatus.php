@@ -19,7 +19,7 @@ class ModelStatus extends Model
 
     public function getAll()
     {
-        $this->db->query('SELECT * FROM '.$this->table);
+        $this->db->query('SELECT * FROM '.$this->table.' ORDER BY ID_status ASC');
         $this->db->execute();
         return $this->db->resultSet();
     }

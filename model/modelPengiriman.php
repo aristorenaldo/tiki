@@ -17,6 +17,16 @@ class ModelPengiriman extends Model
         return $this->db->resultSet();
     }
 
+    public function getDetailByResi($resi)      
+    {
+        $sql = "SELECT * FROM {$this->table} p
+                WHERE p.resi = :resi;";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+        return $this->db->single();
+    }
+
     public function add($resi, $timestamp, $jenis_pengiriman, $total_berat, $total_harga, $id_pengirim,$id_kurir,$id_penerima)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:resi, :time_stamp, :jenis_pengiriman, :total_berat, :total_harga ,:id_pengirim,:id_kurir,:id_penerima)';

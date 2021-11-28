@@ -1,6 +1,6 @@
 <?php 
-require_once 'view/layout/header.php';
-require_once 'view/component/navbar.php'
+require_once '../view/layout/header.php';
+require_once '../view/component/navbar.php'
 ?>
 <div class="container-md pt-5">
     <h1 class="text-center">Halaman Pegawai</h1>
@@ -11,7 +11,7 @@ require_once 'view/component/navbar.php'
         <div class="d-flex flex-column">
             <?php foreach($listResi as $resi): ?>
             <div class="border bg-light p-3">
-                <p class="mb-0">Resi <strong><?=$resi['resi']?></strong><span class="badge bg-secondary float-end"><a class="text-light" href="">detail</a></span></p>
+                <p class="mb-0">Resi <strong><?=$resi['resi']?></strong><span class="badge bg-secondary float-end"><a class="text-light" href="<?=BASEURL?>/pegawai/detailPengiriman.php?resi=<?=$resi['resi']?>">detail</a></span></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -19,5 +19,5 @@ require_once 'view/component/navbar.php'
 </div>
 
 <?php 
-require_once 'view/layout/footer.php';
+require_once '../view/layout/footer.php';
 ?>

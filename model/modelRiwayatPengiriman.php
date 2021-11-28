@@ -10,6 +10,18 @@ class ModelRiwayatPengiriman extends Model
         return $this->db->resultSet();
     }
 
+    public function getDetailByResi($resi)
+    {   
+        $sql= "SELECT * FROM {$this->table} p 
+                JOIN Status s ON p.ID_status = s.ID_status
+                WHERE p.resi = :resi
+                ORDER BY p.time_stamp ASC;";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
     public function add($resi, $idStatus, $timestamp, $kota)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:time_stamp, :id, :resi, :kota)';
@@ -24,6 +36,7 @@ class ModelRiwayatPengiriman extends Model
         return $this->db->rowCount();
     }
 
+    
     public function deleteByResiId($resi, $idStatus)
     {
         $sql = "DELETE FROM {$this->table} WHERE resi = :resi AND ID_status = :id;";

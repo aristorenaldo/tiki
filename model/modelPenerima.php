@@ -24,6 +24,23 @@ class ModelPenerima extends Model
         return $this->db->resultSet();
     }
 
+    public function getAllIdName()
+    {
+        $this->db->query('SELECT ID_penerima, nama FROM '.$this->table);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function getById($id)
+    {   
+        $sql = "SELECT * FROM {$this->table} WHERE ID_penerima = :id";
+        $this->db->query($sql);
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->single();
+    }
+
     public function add( $nama, $jalan, $kecamatan, $kota, $provinsi, $kodepos, $noHp)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES ( :nama, :jalan, :kecamatan, :kota, :provinsi, :kodepos, :no_hp)';

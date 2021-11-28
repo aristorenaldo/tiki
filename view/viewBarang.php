@@ -44,7 +44,7 @@ require_once '../view/component/sidebar.php';
                     <?php endforeach; ?>
                     <td class="fit">
                         <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#editBarang">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deleteBarang.php?nama=<?=urlencode($row['nama'])?>&resi=<?=urlencode($row['resi']) ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/admin/deleteBarang.php?nama=<?=urlencode($row['nama'])?>&resi=<?=urlencode($row['resi']) ?>" onclick="return confirm('Are you sure?');">Delete</a>
                         
                     </td>
                 </tr>

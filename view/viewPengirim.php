@@ -42,7 +42,7 @@ require_once '../view/component/sidebar.php';
                     <?php endforeach; ?>
                     <td class="fit">
                         <a class="badge bg-success showEdit"  data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a>
-                        <a class="badge bg-danger" href="<?=BASEURL?>/deletePengirim.php?id=<?=$row["ID_pengirim"]?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-danger" href="<?=BASEURL?>/admin/deletePengirim.php?id=<?=$row["ID_pengirim"]?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

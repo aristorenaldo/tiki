@@ -10,7 +10,7 @@
           <a class="nav-link <?=$navItems['Home']?>" href="<?=BASEURL?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?=$navItems['Pegawai']?>" href="<?=BASEURL?>/pegawai.php">Pegawai</a>
+          <a class="nav-link <?=$navItems['Pegawai']?>" href="<?=BASEURL?>/pegawai">Pegawai</a>
         </li>
         
         <li class="nav-item">

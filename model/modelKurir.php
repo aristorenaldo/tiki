@@ -24,6 +24,16 @@ class ModelKurir extends Model
         return $this->db->resultSet();
     }
 
+    public function getById($id)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE ID_kurir = :id";
+        $this->db->query($sql);
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->single();
+    }
+
     public function add($id, $nama,  $noHp, $lokasi)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:id, :nama, :no_hp, :lokasi)';
@@ -49,12 +59,19 @@ class ModelKurir extends Model
         return $this->db->rowCount();
     }
 
+    public function getAllIdName()
+    {
+        $this->db->query('SELECT ID_kurir, nama FROM '.$this->table);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
     public function editById($id, $newNama, $newNoHp, $newLokasi)
     {
         $sql = "UPDATE {$this->table} SET 
         nama = :nama, 
         no_hp = :no_hp,
-        lokasi = :  lokasi
+        lokasi = :lokasi
         WHERE ID_kurir = :id;";
         $this->db->query($sql);
         

@@ -21,6 +21,23 @@ class ModelPengirim extends Model
         $this->db->execute();
         return $this->db->resultSet();
     }
+    
+    public function getAllIdName()
+    {
+        $this->db->query('SELECT ID_pengirim, nama FROM '.$this->table);
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function getById($id)
+    {   
+        $sql = "SELECT * FROM {$this->table} WHERE ID_pengirim = :id";
+        $this->db->query($sql);
+        $this->db->bind('id',$id);
+
+        $this->db->execute();
+        return $this->db->single();
+    }
 
     public function add($nama, $jalan, $kecamatan, $kota, $provinsi, $kodepos, $noHp)
     {
