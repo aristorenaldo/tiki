@@ -1,7 +1,7 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
 $penerima = new ModelPenerima();
 
@@ -24,6 +24,6 @@ if (isset($_POST)) {
     }
 }
 
-header('Location: '.BASEURL.'/kurir.php');
+header('Location: '.BASEURL.'/admin/kurir.php');
 exit();
 ?>

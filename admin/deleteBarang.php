@@ -1,7 +1,7 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
 $barang = new ModelBarang();
 // var_dump($_GET);
@@ -19,6 +19,6 @@ if(isset($_GET['resi'])){
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/barang.php');
+header('Location: '.BASEURL.'/admin/barang.php');
 exit();
 ?>

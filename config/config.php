@@ -1,6 +1,6 @@
 <?php 
-// URL dari JNT
-define('BASEURL', 'http://localhost/tiki');
+// URL dari JNE
+define('BASEURL', 'http://localhost/tikijne');
 
 // Database
 // Diganti sesuai kebutuhan 

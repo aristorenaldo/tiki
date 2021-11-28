@@ -5,13 +5,13 @@
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav">
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/penerima.php"><i class="bi bi-pencil-square"></i> <span class="item-text">Penerima</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/kurir.php"><i class="bi bi-people"></i> <span class="item-text">Kurir</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/status.php"><i class="bi bi-book"></i> <span class="item-text">Status</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/pengirim.php"><i class="bi bi-person-check"></i> <span class="item-text">Pengirim</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/barang.php"><i class="bi bi-envelope"></i> <span class="item-text">Barang</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/pengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Pengiriman</span></a></li>
-            <li class="my-2 ms-3"><a href="<?=BASEURL?>/riwayatPengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Riwayat Pengiriman</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/penerima.php"><i class="bi bi-pencil-square"></i> <span class="item-text">Penerima</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/kurir.php"><i class="bi bi-people"></i> <span class="item-text">Kurir</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/status.php"><i class="bi bi-book"></i> <span class="item-text">Status</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/pengirim.php"><i class="bi bi-person-check"></i> <span class="item-text">Pengirim</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/barang.php"><i class="bi bi-envelope"></i> <span class="item-text">Barang</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/pengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Pengiriman</span></a></li>
+            <li class="my-2 ms-3"><a href="<?=BASEURL?>/admin/riwayatPengiriman.php"><i class="bi bi-box-arrow-right"></i> <span class="item-text">Riwayat Pengiriman</span></a></li>
         </ul>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <?php 
 if(! session_id()) session_start();
 
-require_once 'init.php';
+require_once '../init.php';
 
 $riwayatpengiriman = new ModelRiwayatPengiriman();
 $result = $riwayatpengiriman->getAll();
@@ -13,7 +13,7 @@ if(!is_null($msg)) die($msg);
 // var_dump($result);
 // die();
 $title = "riwayatpengiriman";
-
-require_once 'view/viewRiwayatPengiriman.php';
+$navItems = array('Home' => '', 'Pegawai' => '', 'Admin' => 'active');
+require_once '../view/viewRiwayatPengiriman.php';
 exit;
 ?>

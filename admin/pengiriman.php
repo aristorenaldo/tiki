@@ -1,7 +1,7 @@
 <?php 
 if(! session_id()) session_start();
 
-require_once 'init.php';
+require_once '../init.php';
 
 $pengiriman = new ModelPengiriman();
 $result = $pengiriman->getAll();
@@ -23,8 +23,8 @@ $timestampLocal = substr($timestamp->setTimeZone(new DateTimeZone('Asia/Ujung_pa
 // echo $timestampLocal;
 // echo '<br>';
 
+$navItems = array('Home' => '', 'Pegawai' => '', 'Admin' => 'active');
 
-
-require_once 'view/viewPengiriman.php';
+require_once '../view/viewPengiriman.php';
 exit;
 ?>

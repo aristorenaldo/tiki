@@ -1,7 +1,7 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
 $riwayatpengiriman = new ModelRiwayatPengiriman();
 
@@ -25,7 +25,7 @@ if (isset($_POST['resi'])) {
     }
 
 }
-header('Location: '.BASEURL.'/riwayatpengiriman.php');
+header('Location: '.BASEURL.'/admin/riwayatpengiriman.php');
 exit();
 
 ?>

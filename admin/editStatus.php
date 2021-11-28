@@ -1,7 +1,7 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
 $status = new ModelStatus();
 
@@ -20,7 +20,7 @@ if (isset($_POST)) {
         Flasher::setFlash($errMsg, 'Editted','danger');
     }
 }
-header('Location: '.BASEURL.'/status.php');
+header('Location: '.BASEURL.'/admin/status.php');
 exit();
 
 ?>

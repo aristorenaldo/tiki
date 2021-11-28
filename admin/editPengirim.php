@@ -1,9 +1,9 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
-$penerima = new ModelPenerima();
+$pengirim = new ModelPengirim();
 
 if(isset($_POST)){
     $id = htmlentities( $_POST['id'] );
@@ -13,12 +13,10 @@ if(isset($_POST)){
     $newKota = htmlentities( $_POST['kota'] );
     $newProvinsi = htmlentities( $_POST['provinsi'] );
     $newKodepos =(int) htmlentities( $_POST['kodepos'] );
-
-    
     $newNo_hp = htmlentities( $_POST['no_hp'] );
 
-    $stat = $penerima->editById($id, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
-    $errMsg = $penerima->getError();
+    $stat = $pengirim->editById($id, $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
+    $errMsg = $pengirim->getError();
 
     if ($stat > 0) {
         Flasher::setFlash('Record Successfully Editted', 'Editted','success');
@@ -28,7 +26,7 @@ if(isset($_POST)){
     }
 }
 
-header('Location: '.BASEURL.'/penerima.php');
+header('Location: '.BASEURL.'/admin/pengirim.php');
 exit();
 
 ?>

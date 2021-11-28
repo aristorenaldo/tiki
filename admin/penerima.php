@@ -1,7 +1,7 @@
 <?php 
 if(! session_id()) session_start();
 
-require_once 'init.php';
+require_once '../init.php';
 
 $penerima = new ModelPenerima();
 $colName = $penerima->getColumnName();
@@ -14,7 +14,7 @@ if(!is_null($msg)) die($msg);
 // var_dump($result);
 // die();
 $title = "Penerima";
-
-require_once 'view/viewPenerima.php';
+$navItems = array('Home' => '', 'Pegawai' => '', 'Admin' => 'active');
+require_once '../view/viewPenerima.php';
 exit;
 ?>

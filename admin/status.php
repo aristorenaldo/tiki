@@ -1,7 +1,7 @@
 <?php 
 if(! session_id()) session_start();
 
-require_once 'init.php';
+require_once '../init.php';
 
 $status = new ModelStatus();
 $colName = $status->getColumnName();
@@ -16,6 +16,7 @@ if(!is_null($msg)) die($msg);
 // die();
 $title = "Status";
 // var_dump($colName);
-require_once 'view/viewStatus.php';
+$navItems = array('Home' => '', 'Pegawai' => '', 'Admin' => 'active');
+require_once '../view/viewStatus.php';
 exit;
 ?>

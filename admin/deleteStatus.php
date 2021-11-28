@@ -1,14 +1,13 @@
-<?php 
-
+<?php
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
-$penerima = new ModelPenerima();
+$status = new ModelStatus();
 
 if(isset($_GET)){
     $deletedId = htmlentities($_GET['id']);
-    $stat = $penerima->deleteById($deletedId);
-    $msg = $penerima->getError();
+    $stat = $status->deleteById($deletedId);
+    $msg = $status->getError();
     if ($stat > 0) {
         Flasher::setFlash('Record Deleted Successfully','Deleted','success');
     }
@@ -16,6 +15,6 @@ if(isset($_GET)){
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/penerima.php');
+header('Location: '.BASEURL.'/admin/status.php');
 exit();
 ?>

@@ -1,7 +1,7 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
 $barang = new ModelBarang();
 
@@ -29,7 +29,7 @@ if(isset($_POST['resi'])){
     }
 }
 
-header('Location: '.BASEURL.'/barang.php');
+header('Location: '.BASEURL.'/admin/barang.php');
 exit();
 
 ?>

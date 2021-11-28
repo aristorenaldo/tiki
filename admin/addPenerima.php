@@ -1,12 +1,11 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
-$pengirim = new ModelPengirim();
+$penerima = new ModelPenerima();
 
 if (isset($_POST['nama'])) {
-    
     $newNama = htmlentities( $_POST['nama'] );
     $newJalan = htmlentities( $_POST['jalan'] );
     $newKecamatan = htmlentities( $_POST['kecamatan'] );
@@ -15,8 +14,8 @@ if (isset($_POST['nama'])) {
     $newKodepos =(int) htmlentities( $_POST['kodepos'] );
     $newNo_hp = htmlentities( $_POST['no_hp'] );
     
-    $stat = $pengirim->add( $newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
-    $errMsg = $pengirim->getError();
+    $stat = $penerima->add($newNama, $newJalan, $newKecamatan, $newKota, $newProvinsi, $newKodepos, $newNo_hp);
+    $errMsg = $penerima->getError();
 
     if ($stat > 0) {
         Flasher::setFlash('Record Successfully Added', 'Added','success');
@@ -24,8 +23,9 @@ if (isset($_POST['nama'])) {
     else{
         Flasher::setFlash($errMsg, 'Added','danger');
     }
-}   
-header('Location: '.BASEURL.'/pengirim.php');
+
+}
+header('Location: '.BASEURL.'/admin/penerima.php');
 exit();
 
 ?>

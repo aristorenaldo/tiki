@@ -1,9 +1,9 @@
 <?php 
 
 if(! session_id()) session_start();
-require_once 'init.php';
+require_once '../init.php';
 
-$penerima = new ModelPengirim();
+$penerima = new ModelPenerima();
 
 if(isset($_GET)){
     $deletedId = htmlentities($_GET['id']);
@@ -16,6 +16,6 @@ if(isset($_GET)){
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/penerima.php');
+header('Location: '.BASEURL.'/admin/penerima.php');
 exit();
 ?>
