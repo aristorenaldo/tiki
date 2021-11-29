@@ -131,16 +131,17 @@ require_once '../view/component/sidebar.php';
                         <input type="number" name="total_harga" step=0.01 class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">ID Pengirim</label>
-                        <input type="text" name="id_pengirim" class="form-control" required>
+                        <label for="name">ID Penerima</label>
+                        <input type="text" name="id_penerima" class="form-control" required>
                     </div>
+                    
                     <div class="form-group mb-3">
                         <label for="name">ID Kurir</label>
                         <input type="text" name="id_kurir" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">ID Penerima</label>
-                        <input type="text" name="id_penerima" class="form-control" required>
+                        <label for="name">ID Pengirim</label>
+                        <input type="text" name="id_pengirim" class="form-control" required>
                     </div>
                     <input type="hidden" name="resi" value="">
                 </div>

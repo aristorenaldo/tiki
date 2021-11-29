@@ -1,4 +1,5 @@
 <h3>Riwayat Pengiriman</h3>
+<?php Flasher::flash(); ?>
 <table class="table table-bordered">
     <thead>
         <th scope="col">Timestamp</th>
@@ -15,4 +16,5 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<button class="btn btn-secondary">Print</button>
+
+<button class="btn btn-secondary" <?=$btnDisabled?>>Print</button>

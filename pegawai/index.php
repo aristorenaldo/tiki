@@ -1,4 +1,6 @@
 <?php 
+
+if(! session_id()) session_start();
 require_once '../init.php';
 
 $pengiriman = new ModelPengiriman();
@@ -8,6 +10,5 @@ $listResi = $pengiriman->getAllResi();
 $title = 'Pegawai';
 $navItems = array('Home' => '', 'Pegawai' => 'active', 'Admin' => '');
 require_once '../view/viewHalamanPegawai.php';
-
 
 ?>

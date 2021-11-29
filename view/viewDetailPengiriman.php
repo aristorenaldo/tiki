@@ -112,6 +112,7 @@ require_once '../view/component/navbar.php'
                     <td><?=$riwayat['kab_kota']?></td>
                     <td>
                         <a class="badge bg-danger" href="<?=BASEURL?>/pegawai/deleteRiwayatPengiriman.php?resi=<?=urlencode($riwayat['resi'])?>&id_status=<?=urlencode($riwayat['ID_status']) ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a class="badge bg-secondary" href="<?=BASEURL?>/pegawai/editRiwayatPengiriman.php?resi=<?=urlencode($riwayat['resi'])?>&id_status=<?=urlencode($riwayat['ID_status']) ?>">Update</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -14,9 +14,6 @@ if(isset($_POST['resi'])){
     $newTotalHarga =(float) htmlentities( $_POST['total_harga'] );
     $newIdPengirim = (int)htmlentities( $_POST['id_pengirim'] );
     $newIdKurir =(int) htmlentities( $_POST['id_kurir'] );
-    if ($newIdKurir == 0) {
-        $newIdKurir = NULL;
-    }
     
     $newIdPenerima = (int)htmlentities( $_POST['id_penerima'] );
     // var_dump($_POST);

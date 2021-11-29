@@ -5,7 +5,7 @@ require_once '../init.php';
 
 $riwayatpengiriman = new modelRiwayatPengiriman();
 
-if(isset($_POST)){
+if(isset($_POST['resi'])){
     $resi = htmlentities( $_POST['resi'] );
     $idStatus = htmlentities( $_POST['id'] );
     $newResi = htmlentities( $_POST['newresi'] );

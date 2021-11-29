@@ -3,9 +3,12 @@
 if(! session_id()) session_start();
 require_once '../init.php';
 
+
 $pengiriman = new ModelPengiriman();
 
 if (isset($_POST['resi'])) {
+    // var_dump($_POST);
+    // die;
     $timestamp = DateTime::createFromFormat('U.u', number_format(microtime(true), 3, '.', ''));
     $timestampLocal = substr($timestamp->setTimeZone(new DateTimeZone('Asia/Ujung_pandang'))->format('Y-m-d H:i:s.u'), 0,-3);
 

@@ -29,7 +29,11 @@ class ModelPengiriman extends Model
 
     public function add($resi, $timestamp, $jenis_pengiriman, $total_berat, $total_harga, $id_pengirim,$id_kurir,$id_penerima)
     {
-        $sql = 'INSERT INTO '.$this->table.' VALUES (:resi, :time_stamp, :jenis_pengiriman, :total_berat, :total_harga ,:id_pengirim,:id_kurir,:id_penerima)';
+        $sql = 'INSERT INTO '.$this->table.' VALUES (:resi, :time_stamp, :jenis_pengiriman, :total_berat, :total_harga ,:id_penerima,:id_kurir,:id_pengirim)';
+        if (empty($id_kurir)) {
+            $id_kurir = NULL;
+            // die;
+        }
         $this->db->query($sql);
         $this->db->bind('resi',$resi);
         $this->db->bind('time_stamp',$timestamp);
@@ -69,6 +73,10 @@ class ModelPengiriman extends Model
         ID_penerima = :id_penerima
         WHERE resi = :resi;";
         $this->db->query($sql);
+
+        if (empty($newIdKurir)) {
+            $newIdKurir = NULL;
+        }
         
         $this->db->bind('new_resi', $newResi);
         $this->db->bind('time_stamp', $timestamp);

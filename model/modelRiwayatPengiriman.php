@@ -22,6 +22,16 @@ class ModelRiwayatPengiriman extends Model
         return $this->db->resultSet();
     }
 
+    public function getByResiIdStatus($resi, $idStatus)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE resi = :resi AND ID_status = :id";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->bind('id',$idStatus);
+        $this->db->execute();
+        return $this->db->single();
+    }
+
     public function add($resi, $idStatus, $timestamp, $kota)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:time_stamp, :id, :resi, :kota)';

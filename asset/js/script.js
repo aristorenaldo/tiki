@@ -36,6 +36,17 @@ $(document).ready(function () {
         }
         
     });
+
+    $('#modalAdd').on('show.bs.modal', function (event) {
+        let button  = $(event.relatedTarget); // Button that triggered the modal 
+        let modal  = $(this);
+        let title = 'Tambah '+button.data('title');
+        let action = 'add'+button.data('title')+'.php';
+        // alert(title);
+        modal.find('.modal-title').text(title);
+        modal.find('form').attr('action', action);
+        console.log(modal.find('form'));
+    });
 });
 
 // $(function () {
