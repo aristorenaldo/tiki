@@ -19,7 +19,7 @@ require_once '../view/component/sidebar.php';
         ?>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">Tambah Kurir</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd" data-title="Kurir">Tambah Kurir</button>
     </div>
 
 <!-- tabel  -->
@@ -61,10 +61,6 @@ require_once '../view/component/sidebar.php';
         </div>
             <form action="addKurir.php" method="post" >
                 <div class="modal-body">
-                    <div class="form-group mb-3">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" class="form-control" required>
-                    </div>
                     <div class="form-group mb-3">
                         <label for="name">Nama</label>
                         <input type="text" name="nama" class="form-control" required>

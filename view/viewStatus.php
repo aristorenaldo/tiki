@@ -20,7 +20,7 @@ require_once '../view/component/sidebar.php';
         ?>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">Tambah Status</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd" data-title="Status" >Tambah Status</button>
     </div>
 
 <!-- tabel  -->

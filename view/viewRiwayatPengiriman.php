@@ -17,7 +17,7 @@ require_once '../view/component/sidebar.php';
         ?>
     </div>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">Tambah Riwayat</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddRiwayat" data-title="">Tambah Riwayat</button>
     </div>
 
 <!-- tabel  -->
@@ -52,7 +52,7 @@ require_once '../view/component/sidebar.php';
 </div>
 
 <!-- Modal Add  -->
-<div class="modal fade" id="modalAdd" tabindex="-1">
+<div class="modal fade" id="modalAddRiwayat" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
