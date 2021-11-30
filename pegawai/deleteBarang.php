@@ -13,12 +13,12 @@ if(!empty($_GET['resi'])){
     $stat = $barang->deleteById($deletedNama,$deletedResi);
     $msg = $barang->getError();
     if ($stat > 0) {
-        Flasher::setFlash('Record Deleted Successfully','Deleted','success');
+        Flasher::setFlash('Barang Berhasil Dihapus','Deleted','success');
     }
     else{
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/admin/barang.php');
+header('Location: '.BASEURL.'/pegawai/detailPengiriman.php?resi='.$deletedResi);
 exit();
 ?>

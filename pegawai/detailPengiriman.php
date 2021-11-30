@@ -28,6 +28,9 @@ if(isset($_GET['resi']) && $_GET['resi'] != ''){
     $pilihanKurir  = $kurir->getAllIdName();
     $detailKurir = array('nama'=>'','no_hp'=>'', 'lokasi'=>'');
 
+    $barang = new ModelBarang();
+    $listBarang = $barang->getByResi($resi);
+
     if ($detail['ID_kurir'] != '') {
         $detailKurir = $kurir->getById($detail['ID_kurir']);
     }

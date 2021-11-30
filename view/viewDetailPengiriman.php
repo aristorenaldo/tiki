@@ -34,8 +34,11 @@ require_once '../view/component/navbar.php'
             </div>
             <div class="row mb-1">
                 <label for="inputTotalBerat" class="col-sm-2 col-form-label">Total Berat (kg)</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9 ">
                     <input type="number" step=0.01 class="form-control" name="total_berat" id="inputTotalBerat value" value="<?=$detail['total_berat_kg']?>">
+                </div>
+                <div class="col-sm-1 d-flex align-items-center justify-content-end">
+                    <a class="btn btn-secondary btn-sm" href="<?=BASEURL?>/pegawai/updateTotBerat.php?resi=<?=urlencode($detail['resi'])?>">Perbarui</a>
                 </div>
             </div>
             <div class="row mb-1">
@@ -277,6 +280,43 @@ require_once '../view/component/navbar.php'
                     </div>
                 </div>
             </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="detailBarangHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#detailBarangBody" aria-expanded="false" aria-controls="detailBarangBody">
+                        Barang
+                    </button>
+                </h3>
+                <div id="detailBarangBody" class="accordion-collapse collapse" aria-labelledby="detailBarangHeading">
+                    <div class="accordion-body">
+                        <div class="container-fluid px-5">
+                            <table class="table">
+                                <thead>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Jenis</th>
+                                    <th scope="col">Berat (kg)</th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($listBarang as $dataBarang): ?>
+                                    <tr>
+                                        <td><?=$dataBarang['nama']?></td>
+                                        <td><?=$dataBarang['jenis']?></td>
+                                        <td><?=$dataBarang['berat_kg']?></td>
+                                        <td>
+                                            <a class="badge bg-danger" href="<?=BASEURL?>/pegawai/deleteBarang.php?resi=<?=urlencode($resi)?>&nama=<?=urlencode($dataBarang['nama']) ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                                            <a class="badge bg-secondary" href="<?=BASEURL?>/pegawai/editBarang.php?resi=<?=urlencode($resi)?>&nama=<?=urlencode($dataBarang['nama']) ?>">Update</a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBarang">Tambah Barang</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>   
 </div>
@@ -304,6 +344,41 @@ require_once '../view/component/navbar.php'
                     <div class="form-group mb-3">
                         <label for="name">Kab/Kota</label>
                         <input type="text" name="kota" class="form-control" required>
+                    </div>
+
+                </div>
+                <div class="modal-footer mb-3">
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+                    <input type="submit" value="Submit" class="btn btn-success" required>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add Barang -->
+<div class="modal fade" id="addBarang" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Tambah Barang</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <form action="addBarang.php" method="post">
+                <div class="modal-body">
+                    <input type="hidden" name="resi" value="<?=$resi?>">
+                    <div class="form-group mb-3">
+                        <label for="name">Nama</label>
+                        <input type="text" name="nama" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="name">Jenis</label>
+                        <input type="text" name="jenis" class="form-control" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Berat (kg)</label>
+                        <input type="number" step="0.01" name="berat" class="form-control" required>
                     </div>
 
                 </div>

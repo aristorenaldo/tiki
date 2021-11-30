@@ -92,6 +92,19 @@ class ModelPengiriman extends Model
 
         return $this->db->rowCount();
     }
+    public function updateTotalBeratByResi($resi, $totalBerat)
+    {
+        $sql = "UPDATE {$this->table} SET
+                total_berat_kg = :total_berat
+                WHERE resi = :resi";
+        $this->db->query($sql);
+        $this->db->bind('total_berat',$totalBerat);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+
+    }
 }
 
 ?>

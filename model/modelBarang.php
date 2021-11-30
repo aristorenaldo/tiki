@@ -11,6 +11,37 @@ class ModelBarang extends Model
         return $this->db->resultSet();
     }
 
+    public function getByResi($resi)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE resi = :resi";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+
+        return $this->db->resultSet();
+    }
+
+    public function getByResiNama($resi, $nama)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE resi = :resi AND nama = :nama";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->bind('nama',$nama);
+        $this->db->execute();
+
+        return $this->db->single();
+    }
+
+    public function getTotalBeratByResi($resi) 
+    {
+        $sql = "SELECT SUM(berat_kg) AS total_berat FROM {$this->table} WHERE resi = :resi";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+
+        return $this->db->resultSet();
+    }
+
     public function add($resi, $nama, $jenis, $berat)
     {
         $sql = 'INSERT INTO '.$this->table.' VALUES (:nama, :resi, :jenis, :berat)';
@@ -43,7 +74,7 @@ class ModelBarang extends Model
         nama = :newnama,
         resi = :newresi, 
         jenis = :newjenis,
-        berat = :newberat
+        berat_kg = :newberat
         WHERE nama = :nama AND resi= :resi;";
         $this->db->query($sql);
         

@@ -6,7 +6,7 @@ require_once '../init.php';
 $riwayatpengiriman = new modelRiwayatPengiriman();
 
 $resi='';
-var_dump($_POST);
+// var_dump($_POST);
 if(isset($_POST['resi']) && isset($_POST['id_status'])){
     $resi = htmlentities( $_POST['resi'] );
     $idStatus = htmlentities( $_POST['id_status'] );
