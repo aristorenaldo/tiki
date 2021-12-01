@@ -31,9 +31,9 @@ if(!empty($_GET['resi']) && !empty($_GET['nama'])){
 
     $nama = htmlentities($_GET['nama']);
     $resi = htmlentities($_GET['resi']);
-    // $title = 'Edit Barang';
+    $title = 'Edit Barang';
     $editData = $barang->getByResiNama($resi,$nama);
-    var_dump($editData);
+    // var_dump($editData);
     require_once '../view/viewEditBarang.php';
     exit;
 }

@@ -81,7 +81,7 @@ require_once '../view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">berat</label>
-                        <input type="number" name="berat" class="form-control" required>
+                        <input type="number" name="berat" step="0.01" class="form-control" required>
                     </div>
 
                 </div>
@@ -121,7 +121,7 @@ require_once '../view/component/sidebar.php';
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">berat</label>
-                        <input type="number" name="newberat" class="form-control" required>
+                        <input type="number" name="newberat" step="0.01" class="form-control" required>
                     </div>
 
                     <input type="hidden" name="nama" value="">

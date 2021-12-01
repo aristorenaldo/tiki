@@ -33,7 +33,7 @@ require_once '../view/component/navbar.php'
             <div class="row mb-1">
                 <label class="col-sm-2 col-form-label">Berat (kg)</label>
                 <div class="col-sm-10">
-                    <input type="number" name="berat" id="inputBerat" class="form-control"value="<?=$editData['berat_kg']?>">
+                    <input type="number" name="berat" id="inputBerat" step="0.01" class="form-control"value="<?=$editData['berat_kg']?>">
                 </div>
                 
             </div>
