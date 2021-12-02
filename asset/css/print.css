@@ -1,0 +1,22 @@
+
+.text-center {
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+table, th, td {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+
+table.border ,table.border td, table.border th{
+  border: 1px solid black ;
+}
+
+.mb-10{
+  margin-bottom: 2em;
+}

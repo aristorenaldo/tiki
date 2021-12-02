@@ -2,6 +2,7 @@
 class ModelPengiriman extends Model 
 {
     private $table = 'pengiriman';
+    private $view = 'detail_pengirim_penerima';
 
     public function getAll()
     {
@@ -21,6 +22,15 @@ class ModelPengiriman extends Model
     {
         $sql = "SELECT * FROM {$this->table} p
                 WHERE p.resi = :resi;";
+        $this->db->query($sql);
+        $this->db->bind('resi',$resi);
+        $this->db->execute();
+        return $this->db->single();
+    }
+
+    public function getDetailPengirimPenerimaKurirByResi($resi)
+    {
+        $sql = "SELECT * FROM {$this->view} WHERE resi = :resi";
         $this->db->query($sql);
         $this->db->bind('resi',$resi);
         $this->db->execute();

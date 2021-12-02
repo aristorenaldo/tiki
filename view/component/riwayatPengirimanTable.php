@@ -17,4 +17,4 @@
     </tbody>
 </table>
 
-<button class="btn btn-secondary" <?=$btnDisabled?>>Print</button>
+<button class="btn btn-secondary" <?=$btnDisabled?> onclick=" window.open('<?=BASEURL?>/printResi.php?resi=<?=urlencode($resi)?>','_blank')">Print</button>
