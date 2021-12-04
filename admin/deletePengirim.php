@@ -16,6 +16,6 @@ if(isset($_GET)){
         Flasher::setFlash($msg,'Deleted','danger');
     }
 }
-header('Location: '.BASEURL.'/admin/penerima.php');
+header('Location: '.BASEURL.'/admin/pengirim.php');
 exit();
 ?>

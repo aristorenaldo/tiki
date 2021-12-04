@@ -35,7 +35,7 @@ if($_GET['resi'] != ''  && $_GET['id_status'] != ''){
     $idStatus = htmlentities($_GET['id_status']);
     $title = 'Edit Riwayat Pengiriman';
     $editData = $riwayatpengiriman->getByResiIdStatus($resi, $idStatus);
-    var_dump($editData);
+    // var_dump($editData);
     require_once '../view/viewEditRiwayatPengiriman.php';
     exit;
 }

@@ -155,8 +155,6 @@ require_once '../view/component/sidebar.php';
     </div>
 </div>
 
-<?php echo uniqid(); ?>
-
 <?php 
 require_once '../view/layout/footer.php';
 ?>
